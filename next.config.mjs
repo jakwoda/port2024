@@ -5,6 +5,7 @@ import rehypePrism from "@mapbox/rehype-prism";
 
 const nextConfig = {
   output: 'export',
+  basePath: '/port2024',
   images: {
     domains: ["images.unsplash.com", "res.cloudinary.com"],
     unoptimized: true,
