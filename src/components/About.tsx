@@ -3,15 +3,16 @@ import { Paragraph } from "@/components/Paragraph";
 import Image from "next/image";
 import { Highlight } from "./Highlight";
 import { motion } from "framer-motion";
+import { withBasePath } from "@/lib/utils";
 
 export default function About() {
   const images = [
-// "/images/me/1.jpg",
-"/images/me/2.jpg",
-"/images/me/me.jpg",
-// "/images/me/5.jpg",
-"/images/me/6.jpg",
-"/images/me/9.jpg",
+// withBasePath("/images/me/1.jpg"),
+withBasePath("/images/me/2.jpg"),
+withBasePath("/images/me/me.jpg"),
+// withBasePath("/images/me/5.jpg"),
+withBasePath("/images/me/6.jpg"),
+withBasePath("/images/me/9.jpg"),
 
   ];
   return (

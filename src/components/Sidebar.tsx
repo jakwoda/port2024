@@ -4,6 +4,7 @@ import { Navlink } from "@/types/navlink";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
+import { withBasePath } from "@/lib/utils";
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { Heading } from "./Heading";
@@ -126,7 +127,7 @@ const SidebarHeader = () => {
   return (
     <div className="flex space-x-2">
       <Image
-        src="/images/me/me.jpg"
+        src={withBasePath("/images/me/me.jpg")}
         alt="Avatar"
         height="40"
         width="40"

@@ -2,49 +2,43 @@ import Image from "next/image";
 import React from "react";
 import { Heading } from "./Heading";
 import { twMerge } from "tailwind-merge";
+import { withBasePath } from "@/lib/utils";
 
 export const TechStack = () => {
   const stack = [
     {
       title: "Next.js",
-      src: "/images/logos/next.png",
-
+      src: withBasePath("/images/logos/next.png"),
       className: "h-10 w-14",
     },
     {
       title: "AWS",
-      src: "/images/logos/aws.webp",
-
+      src: withBasePath("/images/logos/aws.webp"),
       className: "h-10 w-10",
     },
     {
       title: "Figma",
-      src: "/images/logos/figma.png",
-
+      src: withBasePath("/images/logos/figma.png"),
       className: "h-10 w-8",
     },
     {
       title: "Framer Motion",
-      src: "/images/logos/framer.webp",
-
+      src: withBasePath("/images/logos/framer.webp"),
       className: "h-10 w-10",
     },
     {
       title: "Node",
-      src: "/images/logos/node.png",
-
+      src: withBasePath("/images/logos/node.png"),
       className: "h-10 w-12",
     },
     {
       title: "Tailwind",
-      src: "/images/logos/tailwind.png",
-
+      src: withBasePath("/images/logos/tailwind.png"),
       className: "h-10 w-24",
     },
     {
       title: "Vercel",
-      src: "/images/logos/vercel.png",
-
+      src: withBasePath("/images/logos/vercel.png"),
       className: "h-10 w-24",
     },
   ];

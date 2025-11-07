@@ -5,16 +5,17 @@ import { Highlight } from "./Highlight";
 import { motion } from "framer-motion";
 import Draggable from "react-draggable";
 import { Resizable } from "re-resizable";
+import { withBasePath } from "@/lib/utils";
 
 export default function Pictures() {
 const images = [
-    "/images/me/marks.png",
-    "/images/me/marks2.png",
-    "/images/me/marks3.png",
-    "/images/me/marks4.png",
-    "/images/me/marks5.png",
-    "/images/me/marks6.png",
-    "/images/me/me2.png",
+    withBasePath("/images/me/marks.png"),
+    withBasePath("/images/me/marks2.png"),
+    withBasePath("/images/me/marks3.png"),
+    withBasePath("/images/me/marks4.png"),
+    withBasePath("/images/me/marks5.png"),
+    withBasePath("/images/me/marks6.png"),
+    withBasePath("/images/me/me2.png"),
     ];
 
   return (
