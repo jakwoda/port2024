@@ -1,23 +1,25 @@
 
+import { withBasePath } from "@/lib/utils";
+
 export const products = [
   {
     href: "https://www.lucyna.org",
     title: "Lucyna",
     description:
       "branding, logo, print and website design for a festival, label and organization.",
-    thumbnail: "/images/lucyna/lucyna6.jpg",
+    thumbnail: withBasePath("/images/lucyna/lucyna6.jpg"),
     images: [
-      "/images/lucyna/lucyna3.jpg",
-      "/images/lucyna/lucyna4.jpg",
-      // "/images/lucyna/lucyna2.jpg",
-      "/images/lucyna/lucyna9.jpg",
-      "/images/lucyna/lucyna10.jpg",
-      "/images/lucyna/lucyna1.jpg",
+      withBasePath("/images/lucyna/lucyna3.jpg"),
+      withBasePath("/images/lucyna/lucyna4.jpg"),
+      // withBasePath("/images/lucyna/lucyna2.jpg"),
+      withBasePath("/images/lucyna/lucyna9.jpg"),
+      withBasePath("/images/lucyna/lucyna10.jpg"),
+      withBasePath("/images/lucyna/lucyna1.jpg"),
  
-      // "/images/lucyna/lucyna7.jpg",
-      // "/images/lucyna/lucyna8.jpg",
+      // withBasePath("/images/lucyna/lucyna7.jpg"),
+      // withBasePath("/images/lucyna/lucyna8.jpg"),
       
-      "/images/lucyna/lucyna6.jpg",
+      withBasePath("/images/lucyna/lucyna6.jpg"),
 
     ],
     stack: ["Branding", "Product", "Print", "Web Design"],
@@ -41,15 +43,15 @@ export const products = [
     title: "Riso",
     description:
       "useful open-source tool for to help with color separation, printing process and visualisation for riso and screen printing.",
-    thumbnail: "/images/riso/riso7.jpg",
+    thumbnail: withBasePath("/images/riso/riso7.jpg"),
     images: [
-      "/images/riso/riso1.jpg",
-      "/images/riso/riso2.jpg",
-      "/images/riso/riso3.jpg",
-      "/images/riso/riso4.jpg",
-      // "/images/riso/riso5.jpg",
-      "/images/riso/riso6.jpg",
-      "/images/riso/riso7.jpg",
+      withBasePath("/images/riso/riso1.jpg"),
+      withBasePath("/images/riso/riso2.jpg"),
+      withBasePath("/images/riso/riso3.jpg"),
+      withBasePath("/images/riso/riso4.jpg"),
+      // withBasePath("/images/riso/riso5.jpg"),
+      withBasePath("/images/riso/riso6.jpg"),
+      withBasePath("/images/riso/riso7.jpg"),
     ],
     stack: ["Product Design", "JavaScript", "Print", "Web Design", "Open Source"],
     slug: "riso",
@@ -70,12 +72,12 @@ export const products = [
     title: "Bladr",
     description:
       "Animations, posters and web-design, interactions, and for a website of an art-book shop.",
-    thumbnail: "/images/bladr/bladr4.jpg",
+    thumbnail: withBasePath("/images/bladr/bladr4.jpg"),
     images: [
-      "/images/bladr/bladr1.jpg",
-      "/images/bladr/bladr2.jpg",
-      "/images/bladr/bladr3.jpg",
-      "/images/bladr/bladr4.jpg",
+      withBasePath("/images/bladr/bladr1.jpg"),
+      withBasePath("/images/bladr/bladr2.jpg"),
+      withBasePath("/images/bladr/bladr3.jpg"),
+      withBasePath("/images/bladr/bladr4.jpg"),
       "/images/bladr/bladr5.jpg",
 
     ],
