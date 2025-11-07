@@ -44,12 +44,12 @@ export const FlipWords = ({
           opacity: 1,
           y: 0,
         }}
+        // Use a tween transition with a numeric cubic-bezier easing so it matches
+        // framer-motion's TypeScript types for `ease` (TransitionDefinition).
         transition={{
+          type: "tween",
+          ease: [0.42, 0, 0.58, 1],
           duration: 0.4,
-          ease: "easeInOut",
-          type: "spring",
-          stiffness: 100,
-          damping: 10,
         }}
         exit={{
           opacity: 0,

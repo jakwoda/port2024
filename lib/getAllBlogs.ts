@@ -2,8 +2,10 @@ import glob from "fast-glob";
 import * as path from "path";
 
 async function importBlog(blogFileNames: any) {
+  // Use a relative path so Next/Webpack can resolve the dynamic import at build time.
+  // `lib/getAllBlogs.ts` is sibling to `src`, so go up one level to reach `src/app/blog`.
   let { meta, default: component } = await import(
-    `src/app/blog/${blogFileNames}`
+    `../src/app/blog/${blogFileNames}`
   );
   return {
     slug: blogFileNames.replace(/(\/content)?\.mdx$/, ""),

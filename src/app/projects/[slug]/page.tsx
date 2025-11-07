@@ -53,3 +53,10 @@ export default function SingleProjectPage({
     </Container>
   );
 }
+
+// For `output: 'export'` Next requires dynamic routes to provide
+// all static params at build time. Provide the list of product slugs
+// so Next can pre-render each project page for static export.
+export async function generateStaticParams() {
+  return products.map((p) => ({ slug: p.slug }));
+}

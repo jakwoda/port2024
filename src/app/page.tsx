@@ -26,13 +26,13 @@ export default function Home() {
       <span className="text-4xl">🌊</span>
       {/* <Heading>🌊</Heading> */}
       <Paragraph className="max-w-xl mt-4">
-        I'm modern digital craftsman{" "}
+        I&apos;m modern digital craftsman{" "}
      <Highlight>years of experience</Highlight> creating  images, identities, products and communities to make a <Highlight>little splash</Highlight> in this world. </Paragraph>
         
         
-        <Heading as="h2" className="font-black text-lg md:text-lg lg:text-lg mt-20 mb-4">
-                                          let's talk about <FlipWords words={words} />  
-        </Heading>
+  <Heading as="h2" className="font-black text-lg md:text-lg lg:text-lg mt-20 mb-4">
+            let&apos;s talk about <FlipWords words={words} />  
+  </Heading>
         <div className="text-4xl flex">
       {socials.map((link: Navlink) => (
         <Link

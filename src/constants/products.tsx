@@ -26,7 +26,7 @@ export const products = [
       <div>
         <p>
        Creatining a brand identity for a festival, label and organization. 
-       The project included logo design as well as it's 3d version.
+  The project included logo design as well as it&apos;s 3d version.
         Working with inclusivity and trying to make the festival safe space for everyone a printed zine was made. 
         A website design was done to promote the festival and the label. With a 3d version of a logo as a hero image. 
        

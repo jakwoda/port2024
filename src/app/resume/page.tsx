@@ -6,7 +6,6 @@ import { Products } from "@/components/Products";
 import { WorkHistory } from "@/components/WorkHistory";
 import Image from "next/image";
 import React from "react";
-import { render } from "react-dom";
 import Pictures from "@/components/Pictures";
 import { socials } from "@/constants/socials";
 import { Navlink } from "@/types/navlink";

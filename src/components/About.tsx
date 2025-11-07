@@ -47,7 +47,7 @@ export default function About() {
       <div className="max-w-4xl">
 
        <Paragraph className=" mt-4">
-          Hey there, I&apos;m Jak Woda - a passionate CertifiedMultimediaDesigner™, skater and artist. I'm a digital native as well as analog enthusiast.
+          Hey there, I&apos;m Jak Woda - a passionate CertifiedMultimediaDesigner™, skater and artist. I&apos;m a digital native as well as analog enthusiast.
       
         </Paragraph>
         <Paragraph className=" mt-4">

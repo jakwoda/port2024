@@ -29,9 +29,10 @@ const images = [
             }}
             animate={{
               opacity: 1,
-              y: Math.random()*(window.innerHeight-800),
-              x: Math.random()*(window.innerWidth-100),
-              rotate: index % 2 === 0 ? Math.random()*13 : -Math.random()*13,
+              // Guard window access so server-side build / prerender doesn't crash.
+              y: Math.random() * ((typeof window !== "undefined" ? window.innerHeight : 900) - 800),
+              x: Math.random() * ((typeof window !== "undefined" ? window.innerWidth : 1200) - 100),
+              rotate: index % 2 === 0 ? Math.random() * 13 : -Math.random() * 13,
             }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >

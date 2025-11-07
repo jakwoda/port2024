@@ -27,13 +27,6 @@ export const WavyBackground = ({
   [key: string]: any;
 }) => {
   const noise = createNoise3D();
-  let w: number,
-    h: number,
-    nt: number,
-    i: number,
-    x: number,
-    ctx: any,
-    canvas: any;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const getSpeed = () => {
     switch (speed) {
@@ -46,57 +39,70 @@ export const WavyBackground = ({
     }
   };
 
-  const init = () => {
-    canvas = canvasRef.current;
-    ctx = canvas.getContext("2d");
-    w = ctx.canvas.width = window.innerWidth;
-    h = ctx.canvas.height = window.innerHeight;
+  // Initialization and render loop must run only on the client and
+  // should be defined inside a useEffect so we don't capture local
+  // variables (`init`, `animationId`) in the outer scope which triggers
+  // the exhaustive-deps ESLint warnings.
+  
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || typeof window === "undefined") return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let w = (ctx.canvas.width = window.innerWidth);
+    let h = (ctx.canvas.height = window.innerHeight);
     ctx.filter = `blur(${blur}px)`;
-    nt = 0;
-    window.onresize = function () {
+    let nt = 0;
+
+    const waveColors = colors ?? [
+      "#000082",
+      "#FFFF82",
+      "#FF0082",
+      "#FFF082",
+      "#F0F082",
+    ];
+
+    const drawWave = (n: number) => {
+      nt += getSpeed();
+      for (let i = 0; i < n; i++) {
+        ctx.beginPath();
+        ctx.lineWidth = waveWidth || 120;
+        ctx.strokeStyle = waveColors[i % waveColors.length];
+        for (let x = 0; x < w; x += 5) {
+          var y = noise(x / 420, 0.4 * i, nt) * 100;
+          ctx.lineTo(x, y + h * 0.33);
+        }
+        ctx.stroke();
+        ctx.closePath();
+      }
+    };
+
+    let animationId: number;
+    const renderLoop = () => {
+      ctx.fillStyle = backgroundFill || "white";
+      ctx.globalAlpha = waveOpacity || 0.5;
+      ctx.fillRect(0, 0, w, h);
+      drawWave(5);
+      animationId = requestAnimationFrame(renderLoop);
+    };
+
+    const onResize = () => {
       w = ctx.canvas.width = window.innerWidth;
       h = ctx.canvas.height = window.innerHeight;
       ctx.filter = `blur(${blur}px)`;
     };
-    render();
-  };
 
-  const waveColors = colors ?? [
-    "#000082",
-    "#FFFF82",
-    "#FF0082",
-    "#FFF082",
-    "#F0F082",
-  ];
-  const drawWave = (n: number) => {
-    nt += getSpeed();
-    for (i = 0; i < n; i++) {
-      ctx.beginPath();
-      ctx.lineWidth = waveWidth || 120;
-      ctx.strokeStyle = waveColors[i % waveColors.length];
-      for (x = 0; x < w; x += 5) {
-        var y = noise(x / 420, 0.4 * i, nt) * 100;
-        ctx.lineTo(x, y + h * 0.33); // adjust for height, currently at 50% of the container
-      }
-      ctx.stroke();
-      ctx.closePath();
-    }
-  };
+    window.addEventListener("resize", onResize);
+    renderLoop();
 
-  let animationId: number;
-  const render = () => {
-    ctx.fillStyle = backgroundFill || "white";
-    ctx.globalAlpha = waveOpacity || 0.5;
-    ctx.fillRect(0, 0, w, h);
-    drawWave(5);
-    animationId = requestAnimationFrame(render);
-  };
-
-  useEffect(() => {
-    init();
     return () => {
-      cancelAnimationFrame(animationId);
+      if (animationId) cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", onResize);
     };
+    // Intentionally only run once on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [isSafari, setIsSafari] = useState(false);
