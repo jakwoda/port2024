@@ -19,7 +19,7 @@ export default function Pictures2() {
   ];
 
   return (
-    <div>
+    <div className="pointer-events-none md:pointer-events-auto">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 my-10">
         {images.map((image, index) => (
           <motion.div
@@ -36,10 +36,10 @@ export default function Pictures2() {
               rotate: index % 2 === 0 ? Math.random()*13 : -Math.random()*13,
             }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="z-0"
           >
-            
-           <Resizable> <Draggable >
-<Image src={image} alt="marks on paper screenshot"  width={600} height={600} draggable={false}/>
+           <Resizable> <Draggable>
+<Image src={image} alt="marks on paper screenshot" width={600} height={600} draggable={false} />
 </Draggable>
 </Resizable>
           </motion.div>

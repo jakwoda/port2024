@@ -123,7 +123,7 @@ export const WavyBackground = ({
       )}
     >
       <canvas
-        className="absolute inset-0 z-0 mix-blend-darken"
+        className="absolute inset-0 z-0 mix-blend-darken pointer-events-none"
         ref={canvasRef}
         id="canvas"
         style={{
